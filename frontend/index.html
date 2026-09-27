@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Identify everyday waste with EcoVision. Choose an image or use your camera to discover its material category.">
+    <meta name="theme-color" content="#245b43">
+    <title>EcoVision | See it. Sort it.</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23245b43'/%3E%3Cpath d='M9 23C4 10 17 7 25 7c0 13-6 18-13 14m-3 4 12-12' fill='none' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <symbol id="icon-leaf" viewBox="0 0 24 24"><path d="M5 17C1 6 12 3 21 3c0 11-5 16-12 14M4 21 16 9"/></symbol>
+        <symbol id="icon-upload" viewBox="0 0 24 24"><path d="M12 16V3m-5 5 5-5 5 5M4 16v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4"/></symbol>
+        <symbol id="icon-camera" viewBox="0 0 24 24"><path d="M8 5 6 8H3a1 1 0 0 0-1 1v11h20V9a1 1 0 0 0-1-1h-3l-2-3Z"/><circle cx="12" cy="14" r="4"/></symbol>
+        <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+        <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+        <symbol id="icon-scan" viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m8 0h5v-5M7 12h10"/></symbol>
+        <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+        <symbol id="icon-battery" viewBox="0 0 24 24"><rect x="3" y="7" width="16" height="10" rx="2"/><path d="M22 10v4M7 12h3m-1-2v4m5-2h2"/></symbol>
+        <symbol id="icon-box" viewBox="0 0 24 24"><path d="m12 3 9 5v9l-9 5-9-5V8Zm-9 5 9 5 9-5m-9 5v9M8 5l9 5"/></symbol>
+        <symbol id="icon-shirt" viewBox="0 0 24 24"><path d="M8 3H5L1 7l4 4 2-2v12h10V9l2 2 4-4-4-4h-3c0 4-8 4-8 0Z"/></symbol>
+        <symbol id="icon-glass" viewBox="0 0 24 24"><path d="M7 3h10l-2 11H9Zm5 11v7m-4 0h8"/></symbol>
+        <symbol id="icon-metal" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="7" ry="2"/><path d="M5 5v14c0 3 14 3 14 0V5M8 10v6m4-6v6m4-6v6"/></symbol>
+        <symbol id="icon-paper" viewBox="0 0 24 24"><path d="M5 2h9l5 5v15H5Zm9 0v5h5M8 11h8m-8 4h8m-8 4h5"/></symbol>
+        <symbol id="icon-bottle" viewBox="0 0 24 24"><path d="M9 2h6v5l3 4v10a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V11l3-4Zm0 3h6M6 13h12M6 18h12"/></symbol>
+        <symbol id="icon-shoe" viewBox="0 0 24 24"><path d="M3 9v11h18v-4l-8-3-3-7c-2 3-4 4-7 3Zm0 8h18m-8-4 2-3m0 4 2-3"/></symbol>
+        <symbol id="icon-bin" viewBox="0 0 24 24"><path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7m4-7v7"/></symbol>
+    </svg>
+    <a class="skip-link" href="#classifier">Skip to classifier</a>
+    <div class="page-shell">
+        <header class="site-header">
+            <a class="brand" href="#" aria-label="EcoVision home">
+                <span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#icon-leaf"/></svg></span>
+                <span class="brand-name">EcoVision<span class="brand-caption">SEE IT. SORT IT.</span></span>
+            </a>
+            <nav aria-label="Main navigation"><a class="nav-link" href="#classifier">Classifier</a><a class="nav-link" href="#categories">Categories</a></nav>
+            <span class="header-note"><span class="status-dot"></span> A little less guesswork.</span>
+        </header>
+        <main>
+            <section class="intro" aria-labelledby="pageTitle">
+                <div>
+                    <p class="eyebrow">EVERYDAY WASTE, IDENTIFIED</p>
+                    <h1 id="pageTitle">Know what you're<br><span>throwing away.</span></h1>
+                    <p class="intro-description">Give your waste a closer look. Choose a photo or use your camera<br class="desktop-break"> to find out which material category it belongs to.</p>
+                </div>
+                <div class="intro-note"><svg class="icon" aria-hidden="true"><use href="#icon-leaf"/></svg><p>A clearer picture.<br>A more thoughtful sort.</p></div>
+            </section>
+            <div class="workspace" id="classifier">
+                <section class="input-panel panel" aria-labelledby="inputTitle">
+                    <div class="panel-heading"><div><p class="eyebrow">START WITH AN IMAGE</p><h2 id="inputTitle">Identify your item</h2></div><span class="panel-counter">01 / INPUT</span></div>
+                    <div class="action-buttons">
+                        <button id="uploadButton" class="action-button upload-button" type="button"><svg class="icon" aria-hidden="true"><use href="#icon-upload"/></svg> Choose image</button>
+                        <button id="cameraButton" class="action-button camera-button" type="button"><svg class="icon" aria-hidden="true"><use href="#icon-camera"/></svg> Live camera</button>
+                    </div>
+                    <input type="file" id="imageInput" accept="image/*" hidden>
+                    <div class="image-stage">
+                        <button class="upload-area" id="uploadArea" type="button" aria-label="Choose an image to classify">
+                            <span class="upload-illustration" aria-hidden="true"><span class="scan-corner top-left"></span><span class="scan-corner top-right"></span><svg class="leaf-illustration"><use href="#icon-leaf"/></svg><span class="scan-corner bottom-left"></span><span class="scan-corner bottom-right"></span></span>
+                            <span class="upload-title">Every item has a story.</span>
+                            <span class="upload-description">Start with a clear photo of one item.</span>
+                            <span class="browse-link">Browse your images <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></span>
+                            <span class="upload-format">Choose any supported image file</span>
+                        </button>
+                        <div id="previewContainer" class="preview-container">
+                            <div class="preview-image-wrapper"><img id="imagePreview" alt="Selected waste image preview"></div>
+                            <div class="preview-details"><div class="file-details"><span class="file-name" id="imageName"></span><span class="file-size" id="imageSize"></span></div><button id="removeImageButton" class="icon-button" type="button" aria-label="Remove image" title="Remove image"><svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg></button></div>
+                        </div>
+                        <div id="cameraContainer" class="camera-container">
+                            <div class="camera-wrapper">
+                                <video id="camera" autoplay playsinline muted aria-label="Live waste camera preview"></video>
+                                <div class="live-badge"><span class="status-dot"></span> LIVE CAMERA</div>
+                                <div class="camera-reticle" aria-hidden="true"></div>
+                                <div id="livePrediction" class="live-prediction" role="status">Point the camera at waste</div>
+                            </div>
+                            <div class="camera-details"><p>Keep one item in the center.</p><button id="closeCameraButton" class="secondary-button" type="button"><svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg> Close camera</button></div>
+                        </div>
+                    </div>
+                    <canvas id="canvas" hidden></canvas>
+                    <div id="errorBox" class="error-box" role="alert"></div>
+                    <button id="classifyButton" class="classify-button" type="button" disabled><svg class="icon" aria-hidden="true"><use href="#icon-scan"/></svg><span id="classifyLabel">Classify waste</span><svg class="icon button-arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+                    <p class="input-footnote" id="inputHint">Choose an image to get started. Camera mode scans automatically.</p>
+                </section>
+                <aside class="analysis-panel panel" id="analysisPanel" aria-labelledby="analysisTitle" aria-busy="false">
+                    <div class="panel-heading"><div><p class="eyebrow">GET A CLEARER ANSWER</p><h2 id="analysisTitle">Classification</h2></div><span class="panel-counter">02 / RESULT</span></div>
+                    <div class="result-status" id="resultStatus" role="status" data-state="idle"><span class="status-dot"></span><span id="resultStatusText">Awaiting image</span></div>
+                    <div class="result-empty" id="resultEmpty">
+                        <span class="empty-icon"><svg class="icon" aria-hidden="true"><use href="#icon-scan"/></svg></span>
+                        <h3>A little clarity starts here.</h3><p>Your material category and confidence<br class="desktop-break"> score will appear after analysis.</p>
+                        <ol class="process-steps"><li><span>1</span>Choose an image</li><li><span>2</span>Classify the item</li><li><span>3</span>Read your result</li></ol>
+                    </div>
+                    <div id="loading" class="loading" role="status"><div class="spinner" aria-hidden="true"></div><h3>Taking a closer look...</h3><p>Analyzing the material in your image.</p></div>
+                    <section id="result" class="result" aria-live="polite" aria-atomic="true" aria-label="Classification result">
+                        <div class="result-label"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg> MATERIAL IDENTIFIED</div>
+                        <h3 id="prediction">&mdash;</h3><p class="result-description">Predicted waste category</p>
+                        <div class="confidence-heading"><span>Model confidence</span><strong id="confidence">&mdash;</strong></div>
+                        <div class="confidence-bar" id="confidenceBar" role="progressbar" aria-label="Model confidence" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="confidenceFill" class="confidence-fill"></div></div>
+                        <p class="confidence-note">Confidence shows how certain the model is about this category.</p>
+                    </section>
+                    <div class="photo-tips"><h3>Make the image count.</h3><ul><li>Keep a single item in the frame.</li><li>Use good light and a simple background.</li><li>Make sure the material is clearly visible.</li></ul></div>
+                </aside>
+            </div>
+            <section class="categories-section" id="categories" aria-labelledby="categoriesTitle">
+                <div class="categories-heading"><div><p class="eyebrow">WHAT ECOVISION RECOGNIZES</p><h2 id="categoriesTitle">Ten categories. Everyday possibilities.</h2></div><span class="category-note">Find the material behind the item.</span></div>
+                <ul class="category-grid">
+                    <li data-category="battery"><svg class="icon" aria-hidden="true"><use href="#icon-battery"/></svg><span>Battery</span></li>
+                    <li data-category="biological"><svg class="icon" aria-hidden="true"><use href="#icon-leaf"/></svg><span>Biological</span></li>
+                    <li data-category="cardboard"><svg class="icon" aria-hidden="true"><use href="#icon-box"/></svg><span>Cardboard</span></li>
+                    <li data-category="clothes"><svg class="icon" aria-hidden="true"><use href="#icon-shirt"/></svg><span>Clothes</span></li>
+                    <li data-category="glass"><svg class="icon" aria-hidden="true"><use href="#icon-glass"/></svg><span>Glass</span></li>
+                    <li data-category="metal"><svg class="icon" aria-hidden="true"><use href="#icon-metal"/></svg><span>Metal</span></li>
+                    <li data-category="paper"><svg class="icon" aria-hidden="true"><use href="#icon-paper"/></svg><span>Paper</span></li>
+                    <li data-category="plastic"><svg class="icon" aria-hidden="true"><use href="#icon-bottle"/></svg><span>Plastic</span></li>
+                    <li data-category="shoes"><svg class="icon" aria-hidden="true"><use href="#icon-shoe"/></svg><span>Shoes</span></li>
+                    <li data-category="trash"><svg class="icon" aria-hidden="true"><use href="#icon-bin"/></svg><span>Trash</span></li>
+                </ul>
+            </section>
+        </main>
+        <footer class="site-footer"><span><svg class="icon" aria-hidden="true"><use href="#icon-leaf"/></svg> EcoVision</span><p>Identify waste before you sort it.</p><a href="#classifier">Back to classifier <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a></footer>
+    </div>
+</body>
+</html>
