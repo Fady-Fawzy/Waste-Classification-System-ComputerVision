@@ -1,5 +1,6 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from pathlib import Path
 import tempfile
@@ -35,8 +36,8 @@ app.add_middleware(
 # Health Check
 # =========================
 
-@app.get("/")
-def root():
+@app.get("/health")
+def health():
     return {
         "message": "Waste Classification API is running"
     }
@@ -101,3 +102,12 @@ async def predict(file: UploadFile = File(...)):
         # Delete temporary image
         if temp_path and os.path.exists(temp_path):
             os.remove(temp_path)
+
+
+FRONTEND_DIR = Path(__file__).resolve().parent.parent / "frontend"
+
+app.mount(
+    "/",
+    StaticFiles(directory=FRONTEND_DIR, html=True),
+    name="frontend"
+)
